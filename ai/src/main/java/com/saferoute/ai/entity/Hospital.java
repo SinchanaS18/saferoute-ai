@@ -1,0 +1,28 @@
+package com.saferoute.ai.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import org.locationtech.jts.geom.Point;
+
+@Entity
+@Table(name = "hospitals")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class Hospital {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "hospital_id")
+    private Long hospitalId;
+
+    @Column(name = "name", nullable = false, length = 150)
+    private String name;
+
+    @Column(name = "location_geom", nullable = false, columnDefinition = "geometry(Point,4326)")
+    private Point locationGeom;
+
+    @Column(name = "phone_number", length = 15)
+    private String phoneNumber;
+
+    @Column(name = "address")
+    private String address;
+}

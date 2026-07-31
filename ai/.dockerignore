@@ -1,0 +1,14 @@
+target
+build
+.gradle
+.mvn/wrapper/maven-wrapper.jar
+**/node_modules
+**/target
+**/.git
+**/.idea
+**/.vscode
+*.log
+*.tmp
+*.swp
+*.class
+.DS_Store
