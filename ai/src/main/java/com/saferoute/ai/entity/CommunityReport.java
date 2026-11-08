@@ -31,9 +31,11 @@ public class CommunityReport {
     @Column(name = "address")
     private String address;
 
+    @Builder.Default
     @Column(name = "status", length = 20)
     private String status = "PENDING";
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 }

@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    color-scheme: dark;
+    --sr-background: #070b14;
+    --sr-surface: #0f172a;
+    --sr-surface-card: rgba(15, 23, 42, 0.75);
+    --sr-border: rgba(99, 102, 241, 0.18);
+    --sr-border-glow: rgba(99, 102, 241, 0.4);
+    --sr-accent: #6366f1;
+    --sr-accent-cyan: #06b6d4;
+    --sr-emerald: #10b981;
+    --sr-rose: #f43f5e;
+  }
+
+  * {
+    border-color: var(--sr-border);
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 min-h-screen selection:bg-indigo-600 selection:text-white font-sans antialiased;
+    background-color: var(--sr-background);
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(99, 102, 241, 0.12), transparent 35rem),
+      radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.10), transparent 30rem),
+      radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08), transparent 35rem),
+      linear-gradient(to bottom, rgba(7, 11, 20, 0.8), rgba(7, 11, 20, 0.98));
+    background-attachment: fixed;
+    line-height: 1.5;
+  }
+
+  button, input, select, textarea {
+    font: inherit;
+  }
+
+  button, a {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer components {
+  /* Glassmorphic Cards & Surface Styles */
+  .sr-surface {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(99, 102, 241, 0.18);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+  }
+
+  .sr-card-hover {
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sr-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15), 0 0 20px 0 rgba(6, 182, 212, 0.1);
+  }
+
+  .sr-input {
+    background: rgba(7, 11, 20, 0.8);
+    border: 1px solid rgba(99, 102, 241, 0.22);
+    color: #ffffff;
+    transition: all 180ms ease;
+    border-radius: 0.75rem;
+  }
+
+  .sr-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25), 0 0 15px rgba(6, 182, 212, 0.15);
+  }
+
+  .sr-primary-button {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #06b6d4 100%);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+    border-radius: 0.75rem;
+    transition: all 200ms ease;
+  }
+
+  .sr-primary-button:hover {
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5), 0 0 15px rgba(6, 182, 212, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .sr-emerald-button {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    border-radius: 0.75rem;
+    transition: all 200ms ease;
+  }
+
+  .sr-emerald-button:hover {
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .sr-gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .sr-rose-gradient-text {
+    background: linear-gradient(135deg, #fb7185 0%, #f43f5e 50%, #e11d48 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .sr-glass-badge {
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a5b4fc;
+    border-radius: 9999px;
+  }
+}
+
+/* Visually harmonize existing components */
+.rounded-3xl {
+  border-radius: 1rem !important;
+}
+
+.rounded-2xl {
+  border-radius: 0.875rem !important;
+}
+
+.bg-slate-900 {
+  background-color: rgba(15, 23, 42, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+.bg-slate-900\/90 {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.border-slate-800 {
+  border-color: rgba(99, 102, 241, 0.18) !important;
+}
+
+.shadow-2xl {
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Modern Glowing Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #070b14;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+}
+
+/* Styled Leaflet dark map popups */
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+  border-radius: 0.875rem !important;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(99, 102, 241, 0.2) !important;
+}
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.95) !important;
+}

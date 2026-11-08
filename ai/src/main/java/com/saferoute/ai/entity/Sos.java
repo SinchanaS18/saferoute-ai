@@ -26,9 +26,11 @@ public class Sos {
     @Column(name = "location_geom", nullable = false, columnDefinition = "geometry(Point,4326)")
     private Point locationGeom;
 
+    @Builder.Default
     @Column(name = "status", length = 20)
     private String status = "ACTIVE";
 
+    @Builder.Default
     @Column(name = "triggered_at")
     private LocalDateTime triggeredAt = LocalDateTime.now();
 

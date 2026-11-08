@@ -24,12 +24,15 @@ public class Notification {
     @Column(name = "message", nullable = false, columnDefinition = "TEXT")
     private String message;
 
+    @Builder.Default
     @Column(name = "type", length = 30)
     private String type = "GENERAL";
 
+    @Builder.Default
     @Column(name = "is_read")
     private Boolean isRead = false;
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 }

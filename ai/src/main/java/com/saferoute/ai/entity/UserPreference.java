@@ -18,21 +18,27 @@ public class UserPreference {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
+    @Builder.Default
     @Column(name = "preferred_route_type", length = 20)
     private String preferredRouteType = "SAFEST";
 
+    @Builder.Default
     @Column(name = "notifications_enabled")
     private Boolean notificationsEnabled = true;
 
+    @Builder.Default
     @Column(name = "sos_auto_share_location")
     private Boolean sosAutoShareLocation = true;
 
+    @Builder.Default
     @Column(name = "language", length = 10)
     private String language = "en";
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Builder.Default
     @Column(name = "updated_at")
     private LocalDateTime updatedAt = LocalDateTime.now();
 }

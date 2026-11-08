@@ -27,9 +27,11 @@ public class EmergencyContact {
     @Column(name = "relationship", length = 50)
     private String relationship;
 
+    @Builder.Default
     @Column(name = "is_primary")
     private Boolean isPrimary = false;
 
+    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 }
